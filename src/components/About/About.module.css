@@ -1,0 +1,162 @@
+.aboutSection {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left Content Column */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.subheading {
+  color: #c49a45;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.heading {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.1rem, 3.2vw, 2.8rem);
+  line-height: 1.18;
+  color: #0b1727;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.description {
+  color: #526071;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+
+/* Button Precision Styling */
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 26px;
+  background-color: #08111f;
+  color: #c49a45;
+  border: 1.5px solid #c49a45;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(8, 17, 31, 0.12);
+}
+
+.ctaButton:hover {
+  background-color: #0f1d33;
+  color: #d8ad56;
+  border-color: #d8ad56;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(8, 17, 31, 0.18);
+}
+
+.arrow {
+  color: #c49a45;
+  font-size: 0.95rem;
+  transition: transform 0.25s ease;
+}
+
+.ctaButton:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Right Image Card Frame (Constrained & Polished) */
+.rightColumn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.imageCard {
+  position: relative;
+  width: 100%;
+  max-height: 400px; /* Limits the height so it's not huge */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(8, 17, 31, 0.08);
+  border: 1px solid rgba(8, 17, 31, 0.06);
+}
+
+.boardroomImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Floating Stat Badge in bottom corner of image */
+.floatingBadge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(8, 17, 31, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(196, 154, 69, 0.4);
+  padding: 12px 18px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badgeNumber {
+  font-family: Georgia, serif;
+  color: #c49a45;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.badgeText {
+  color: #ffffff;
+  font-size: 0.725rem;
+  font-weight: 600;
+  line-height: 1.25;
+  max-width: 90px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive Scaling */
+@media (max-width: 960px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .aboutSection {
+    padding: 60px 0;
+  }
+
+  .imageCard,
+  .boardroomImage {
+    height: 320px;
+  }
+}

@@ -1,0 +1,186 @@
+.section {
+  width: 100%;
+  background-color: #f3f5f8;
+  padding: 100px 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Info Column */
+.infoColumn {
+  padding-right: 20px;
+}
+
+.title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 3.5vw, 2.8rem);
+  color: #0b1727;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.65;
+  margin-bottom: 40px;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #0b1727;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.contactIcon {
+  width: 18px;
+  height: 18px;
+  color: #c49a45;
+  flex-shrink: 0;
+}
+
+/* Form Card Container */
+.formCard {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldGroup label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.fieldGroup input,
+.fieldGroup select,
+.fieldGroup textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  color: #0b1727;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  font-family: inherit;
+}
+
+.fieldGroup input:focus,
+.fieldGroup select:focus,
+.fieldGroup textarea:focus {
+  border-color: #c49a45;
+  background-color: #ffffff;
+}
+
+.fieldGroup input::placeholder,
+.fieldGroup textarea::placeholder {
+  color: #94a3b8;
+}
+
+.fieldGroup select {
+  cursor: pointer;
+}
+
+.fieldGroup textarea {
+  resize: vertical;
+}
+
+/* Submit Button */
+.submitButton {
+  width: 100%;
+  height: 48px;
+  background-color: #c49a45;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: 8px;
+}
+
+.submitButton:hover {
+  background-color: #b38938;
+  transform: translateY(-1px);
+}
+
+.btnIcon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Responsiveness */
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .infoColumn {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 580px) {
+  .section {
+    padding: 64px 16px;
+  }
+
+  .formCard {
+    padding: 24px;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

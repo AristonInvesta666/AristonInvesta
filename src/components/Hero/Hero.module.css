@@ -1,0 +1,220 @@
+:root {
+  --navy-bg: #08111f;
+  --gold-primary: #c49a45;
+  --gold-hover: #b08738;
+  --text-white: #ffffff;
+  --text-light: rgba(255, 255, 255, 0.85);
+  --hero-bg-url: url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80");
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 650px;
+  width: 100%;
+  background-color: var(--navy-bg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-bg-url);
+  background-size: cover;
+  background-position: center right; /* Slightly shifted right on desktop for better composition */
+  z-index: 0;
+  transition: transform 0.3s ease;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  /* Desktop overlay: Darker on left, transparent on right */
+  background: linear-gradient(
+    90deg,
+    rgba(8, 17, 31, 0.96) 0%,
+    rgba(8, 17, 31, 0.85) 45%,
+    rgba(8, 17, 31, 0.45) 100%
+  );
+  z-index: 1;
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1320px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 100px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contentWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  max-width: 580px;
+}
+
+.title {
+  font-family: Georgia, serif;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  line-height: 1.1;
+  color: var(--text-white);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.goldText {
+  color: var(--gold-primary);
+  font-weight: 600;
+}
+
+.description {
+  color: var(--text-light);
+  font-size: 0.925rem;
+  line-height: 1.55;
+  margin-bottom: 28px;
+  max-width: 500px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  background-color: var(--gold-primary);
+  color: #08111f;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.primaryButton:hover {
+  background-color: var(--gold-hover);
+  transform: translateY(-1px);
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  background-color: transparent;
+  color: var(--text-white);
+  border: 1px solid var(--gold-primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.secondaryButton:hover {
+  background-color: rgba(196, 154, 69, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Bottom Feature Ribbon */
+.featureBar {
+  width: 100%;
+  background: rgba(11, 22, 38, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  padding: 18px 28px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.iconBox {
+  color: var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.featureTitle {
+  color: var(--text-white);
+  font-size: 0.825rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* --- Mobile & Tablet Optimizations --- */
+@media (max-width: 1024px) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .heroContainer {
+    padding-top: 120px;
+    gap: 40px;
+  }
+
+  .featureBar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  /* 1. Focus the image focal point on mobile (center or top-center) */
+  .backdrop {
+    background-position: center top; 
+  }
+
+  /* 2. Switch gradient to vertical so text stays readable while the image shows through subtly */
+  .heroOverlay {
+    background: linear-gradient(
+      180deg,
+      rgba(8, 17, 31, 0.92) 0%,
+      rgba(8, 17, 31, 0.8) 60%,
+      rgba(8, 17, 31, 0.98) 100%
+    );
+  }
+
+  .heroContainer {
+    padding: 90px 20px 24px;
+  }
+
+  .featureBar {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+}

@@ -1,0 +1,181 @@
+.section {
+  width: 100%;
+  background-color: #08111f; /* Dark Navy Background */
+  padding: 100px 24px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.header h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* 5 Column Grid */
+.planGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Card Styling */
+.planCard {
+  background: rgba(11, 23, 39, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 36px 20px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planCard:hover {
+  border-color: rgba(196, 154, 69, 0.5);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+/* Featured Card Accent */
+.featuredCard {
+  border-color: #c49a45;
+  background: rgba(15, 28, 48, 0.95);
+  box-shadow: 0 0 24px rgba(196, 154, 69, 0.15);
+}
+
+.featuredBadge {
+  position: absolute;
+  top: -14px;
+  background-color: #c49a45;
+  color: #0b1727;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 4px 12px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Icon */
+.iconWrapper {
+  margin-bottom: 16px;
+}
+
+.crownIcon {
+  width: 28px;
+  height: 28px;
+  color: #c49a45;
+  stroke-width: 1.5px;
+}
+
+/* Plan Title & Price */
+.planName {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.price {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c49a45;
+  margin-bottom: 20px;
+  min-height: 22px;
+}
+
+/* Detail Description */
+.detail {
+  font-size: 0.825rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+
+/* CTA Buttons */
+.planCta {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.standardCta {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.standardCta:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+}
+
+.featuredCta {
+  background: #c49a45;
+  border: 1px solid #c49a45;
+  color: #0b1727;
+}
+
+.featuredCta:hover {
+  background: #d4a84e;
+}
+
+/* Disclaimer Footer */
+.disclaimer {
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+/* Responsive Adaptations */
+@media (max-width: 1100px) {
+  .planGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .planGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .section {
+    padding: 64px 16px 48px;
+  }
+
+  .planGrid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}

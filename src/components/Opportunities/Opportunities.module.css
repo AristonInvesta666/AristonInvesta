@@ -1,0 +1,130 @@
+.section {
+  width: 100%;
+  background-color: #f3f5f8;
+  padding: 100px 24px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* Header Styling */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sectionHeader h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  color: #0b1727;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Card Grid Layout */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Card Container with Precision Micro-Interactions */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 44px 28px 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(11, 23, 39, 0.05);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  will-change: transform;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(196, 154, 69, 0.4);
+  box-shadow: 0 20px 40px rgba(11, 23, 39, 0.08),
+    0 0 20px rgba(196, 154, 69, 0.12);
+}
+
+/* Navy Circular Icon Badge */
+.iconCircle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #0b1727;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 16px rgba(11, 23, 39, 0.18);
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  color: #c49a45;
+  stroke-width: 1.75px;
+}
+
+/* Typography */
+.cardTitle {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0b1727;
+  margin-bottom: 12px;
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+.card:hover .cardTitle {
+  color: #08111f;
+}
+
+.cardDescription {
+  font-size: 0.86rem;
+  color: #64748b;
+  line-height: 1.65;
+  margin-bottom: 28px;
+  flex-grow: 1;
+}
+
+/* Animated Gold Divider Line */
+.goldDivider {
+  width: 36px;
+  height: 2.5px;
+  background-color: #c49a45;
+  border-radius: 2px;
+}
+
+/* Responsiveness */
+@media (max-width: 1080px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 16px;
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+}
