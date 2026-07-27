@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/components/Hero/Hero";
 import About from "@/components/About/About";
 import Opportunities from "@/components/Opportunities/Opportunities";
-import WhyChoose from "@/components/WhyChooseUs/WhyChoose";
 import HowItWorks from "@/components/HowItWorks/HowItWorks";
 import InvestmentPlans from "@/components/InvestmentPlans/InvestmentPlans";
 import Testimonials from "@/components/Testimonials/Testimonials";
