@@ -100,10 +100,11 @@ export default function Navbar() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className={styles.logoWrapper}>
-              <span className={styles.brandMain}>Ariston</span>
-              <span className={styles.brandSub}>INVESTA GROUP</span>
-            </div>
+            <img
+              src="/Logo.jpeg" /* Update path to match your logo image source */
+              alt="Ariston Investa Group Logo"
+              className={styles.logoImage}
+            />
           </motion.a>
 
           {/* Desktop Nav Links (Center) */}
@@ -235,10 +236,11 @@ export default function Navbar() {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
               <div className={styles.drawerHeader}>
-                <div className={styles.logoWrapper}>
-                  <span className={styles.brandMain}>Ariston</span>
-                  <span className={styles.brandSub}>INVESTA GROUP</span>
-                </div>
+                <img
+                  src="/Logo.jpeg" /* Update path to match your logo image source */
+                  alt="Ariston Investa Group Logo"
+                  className={styles.logoImageDrawer}
+                />
                 <button
                   type="button"
                   className={styles.drawerCloseBtn}
