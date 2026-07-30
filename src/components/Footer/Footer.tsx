@@ -14,7 +14,7 @@ export default function Footer() {
         <div className={styles.brandBlock}>
           <a href="#hero" className={styles.logoLink}>
             <img
-              src="/Logo.jpeg" /* Make sure path matches your logo file in /public */
+              src="/AristonL.png" /* Make sure path matches your logo file in /public */
               alt="Ariston Investa Group Logo"
               className={styles.logoImage}
             />

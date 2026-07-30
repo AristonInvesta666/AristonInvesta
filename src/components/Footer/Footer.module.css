@@ -37,6 +37,7 @@
 }
 
 /* Brand Section Styling */
+/* Brand Section Styling */
 .brandBlock {
   display: flex;
   flex-direction: column;
@@ -44,17 +45,33 @@
 }
 
 .logoLink {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 180px;
+  height: 75px;
+
+  background: rgb(231, 228, 228);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+
   margin-bottom: 20px;
-  transition: opacity 0.25s ease;
+
+  transition: all 0.3s ease;
 }
 
 .logoLink:hover {
-  opacity: 0.88;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(212, 161, 74, 0.35);
+  box-shadow: 0 8px 30px rgba(212, 161, 74, 0.15);
 }
 
 .logoImage {
-  height: 80px;
+  height: 98px;
   width: auto;
   object-fit: contain;
   display: block;

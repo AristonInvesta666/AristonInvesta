@@ -2,21 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  ShieldCheck,
-  Coins,
-  Handshake,
-  TrendingUp,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import styles from "./Cts.module.css";
-
-const features = [
-  { icon: ShieldCheck, label: "Growth Opportunities" },
-  { icon: Coins, label: "Financial Freedom" },
-  { icon: Handshake, label: "Long-Term Partnerships" },
-  { icon: TrendingUp, label: "Unlimited Potential" },
-];
 
 export default function CTA() {
   return (
@@ -49,10 +36,10 @@ export default function CTA() {
         {/* Main Content Details */}
         <motion.div
           className={styles.content}
-          initial={{ opacity: 0, y: 28 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
           <h2 className={styles.heading}>
             Your Growth Journey <br />
@@ -75,21 +62,6 @@ export default function CTA() {
             </a>
           </div>
         </motion.div>
-
-        {/* 4 Icon Bottom Grid */}
-        <div className={styles.featureGrid}>
-          {features.map((item) => {
-            const IconComponent = item.icon;
-            return (
-              <div key={item.label} className={styles.featureItem}>
-                <div className={styles.iconWrapper}>
-                  <IconComponent className={styles.featureIcon} />
-                </div>
-                <span>{item.label}</span>
-              </div>
-            );
-          })}
-        </div>
       </div>
     </section>
   );

@@ -1,10 +1,11 @@
 .section {
   width: 100%;
-  background-color: #f3f5f8;
+  background-color: #08111f; /* Matching the deep dark navy background */
   padding: 100px 24px;
   display: flex;
   justify-content: center;
   position: relative;
+  scroll-margin-top: 60px;
 }
 
 .container {
@@ -16,15 +17,16 @@
 /* Header Styling */
 .sectionHeader {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 .sectionHeader h2 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2rem, 3.2vw, 2.75rem);
-  color: #0b1727;
+  color: #ffffff; /* Crisp white header text */
   font-weight: 500;
   letter-spacing: -0.01em;
+   transform: translateY(-45px);
 }
 
 /* Card Grid Layout */
@@ -34,20 +36,21 @@
   gap: 24px;
 }
 
-/* Card Container with Precision Micro-Interactions */
+/* Card Container with Dark Aesthetic */
 .card {
-  background-color: #ffffff;
+  background-color: #0d1b2a; /* Slightly lighter navy for contrast */
   border-radius: 12px;
   padding: 44px 28px 36px 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(11, 23, 39, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.3s ease;
+    border-color 0.3s ease,
+    background-color 0.3s ease;
   cursor: pointer;
   position: relative;
   will-change: transform;
@@ -55,28 +58,36 @@
 
 .card:hover {
   transform: translateY(-8px);
-  border-color: rgba(196, 154, 69, 0.4);
-  box-shadow: 0 20px 40px rgba(11, 23, 39, 0.08),
-    0 0 20px rgba(196, 154, 69, 0.12);
+  border-color: rgba(196, 154, 69, 0.5);
+  background-color: #112236;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(196, 154, 69, 0.15);
 }
 
-/* Navy Circular Icon Badge */
+/* Circular Gold-Accented Icon Badge */
 .iconCircle {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background-color: #0b1727;
+  background-color: rgba(196, 154, 69, 0.1);
+  border: 1px solid rgba(196, 154, 69, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
-  box-shadow: 0 6px 16px rgba(11, 23, 39, 0.18);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card:hover .iconCircle {
+  background-color: rgba(196, 154, 69, 0.2);
+  border-color: #c49a45;
 }
 
 .icon {
   width: 28px;
   height: 28px;
-  color: #c49a45;
+  color: #c49a45; /* Signature Gold Accent */
   stroke-width: 1.75px;
 }
 
@@ -85,19 +96,15 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
-  color: #0b1727;
+  color: #ffffff;
   margin-bottom: 12px;
   line-height: 1.35;
   transition: color 0.2s ease;
 }
 
-.card:hover .cardTitle {
-  color: #08111f;
-}
-
 .cardDescription {
-  font-size: 0.86rem;
-  color: #64748b;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.65;
   margin-bottom: 28px;
   flex-grow: 1;

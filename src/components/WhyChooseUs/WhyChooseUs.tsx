@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
           <h2>Why Professionals Choose Ariston</h2>
         </motion.div>
 
-        {/* 3x2 Grid Matrix */}
+        {/* 3x2 Matrix Grid */}
         <div className={styles.grid}>
           {reasons.map((item, index) => {
             const IconComponent = item.icon;
@@ -70,20 +70,21 @@ export default function WhyChooseUs() {
                   delay: index * 0.07,
                   ease: "easeOut",
                 }}
-                whileHover="hover"
+                whileHover={{ y: -8, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                {/* Gold Line Icon */}
-                <motion.div
-                  className={styles.iconWrapper}
-                  variants={{
-                    hover: { scale: 1.1, rotate: 2 },
-                  }}
-                  transition={{ duration: 0.25 }}
-                >
-                  <IconComponent className={styles.icon} />
-                </motion.div>
+                {/* Content wrapper layered above animated gold pseudo-elements */}
+                <div className={styles.cardContent}>
+                  <motion.div
+                    className={styles.iconWrapper}
+                    whileHover={{ scale: 1.1, rotate: 3 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  >
+                    <IconComponent className={styles.icon} />
+                  </motion.div>
 
-                <p className={styles.cardTitle}>{item.title}</p>
+                  <p className={styles.cardTitle}>{item.title}</p>
+                </div>
               </motion.div>
             );
           })}

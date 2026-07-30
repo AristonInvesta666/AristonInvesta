@@ -4,18 +4,20 @@
   padding: 100px 24px;
   display: flex;
   justify-content: center;
+  scroll-margin-top: 80px;
 }
 
 .container {
   width: 100%;
   max-width: 1180px;
-  margin: 0 auto;
+  margin: -15px auto;
 }
 
 /* Header */
 .header {
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 50px;
+ 
 }
 
 .header h2 {
@@ -24,6 +26,7 @@
   color: #0b1727;
   font-weight: 500;
   letter-spacing: -0.01em;
+   transform: translateY(-50px);
 }
 
 /* Process Steps Row */
@@ -126,11 +129,82 @@
 
 @media (max-width: 580px) {
   .section {
-    padding: 64px 16px;
+    padding: 50px 20px;
   }
 
+  .container {
+    margin: 0 auto;
+  }
+
+  .header h2 {
+    transform: translateY(0); /* Fixed the offset text on mobile */
+  }
+
+  /* Vertical Timeline Layout */
   .stepsWrapper {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 0;
+    position: relative;
+  }
+
+  /* Horizontal Step Item -> Vertical Layout */
+  .stepItem {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    grid-template-rows: auto auto auto;
+    column-gap: 16px;
+    align-items: start;
+    text-align: left;
+    max-width: 100%;
+    position: relative;
+    padding-bottom: 32px;
+  }
+
+  /* Adjust Icon Size for Mobile */
+  .iconCircle {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 0;
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    z-index: 2;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Align Text Content to the Right of the Icon */
+  .stepNumber {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 2px;
+  }
+
+  .stepTitle {
+    grid-column: 2;
+    grid-row: 2;
+    margin-bottom: 6px;
+    font-size: 1.1rem;
+  }
+
+  .stepDescription {
+    grid-column: 2;
+    grid-row: 3;
+    font-size: 0.9rem;
+  }
+
+  /* Vertical Connector Line Between Steps */
+  .stepItem:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 27px; /* Center with the 56px circle */
+    top: 56px;
+    bottom: 0;
+    width: 2px;
+    border-left: 2px dashed #c49a45;
+    opacity: 0.5;
+    z-index: 1;
   }
 }

@@ -5,12 +5,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  scroll-margin-top: 90px;
 }
 
 .container {
   width: 100%;
   max-width: 1180px;
-  margin: 0 auto;
+  margin: -40px auto;
   padding: 0 24px 80px;
 }
 
@@ -26,6 +27,7 @@
   color: #0b1727;
   font-weight: 500;
   letter-spacing: -0.01em;
+   transform: translateY(-35px);
 }
 
 /* 3 Column Grid */

@@ -101,7 +101,7 @@ export default function Navbar() {
             whileTap={{ scale: 0.98 }}
           >
             <img
-              src="/Logo.jpeg" /* Update path to match your logo image source */
+              src="/AristonL.png" /* Update path to match your logo image source */
               alt="Ariston Investa Group Logo"
               className={styles.logoImage}
             />
@@ -237,7 +237,7 @@ export default function Navbar() {
             >
               <div className={styles.drawerHeader}>
                 <img
-                  src="/Logo.jpeg" /* Update path to match your logo image source */
+                  src="/AristonL.png" /* Update path to match your logo image source */
                   alt="Ariston Investa Group Logo"
                   className={styles.logoImageDrawer}
                 />

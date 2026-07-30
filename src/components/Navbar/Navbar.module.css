@@ -9,11 +9,15 @@
   width: 100%;
   z-index: 1000;
   padding: 18px 36px;
-  background: rgba(8, 17, 31, 0.35);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+
+  /* Luxury navy gradient */
+ background: rgba(8, 17, 31, 0.35);
+
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.4s ease;
 }
 
 .scrolled {
@@ -32,25 +36,30 @@
   gap: 20px;
 }
 
-/* Brand Logo Image Styling */
 .brand {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  text-decoration: none;
-  cursor: pointer;
-}
+  justify-content: center;   /* Center horizontally */
+  width: 170px;              /* Adjust as needed */
+  height: 70px;              /* Glass box height */
+  padding: 0;
 
+  background: rgb(221, 216, 216);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  overflow: hidden;
+}
 .logoImage {
-  height: 65px;
-  width: auto; /* Fixed invalid syntax '120x' */
+ 
+  width: 110px;
   object-fit: contain;
-  display: block;
-  transition: height 0.4s ease; /* Enables smooth scaling when header resizes */
+
 }
 
 /* Shrunk logo height for desktop when scrolled */
 .scrolled .logoImage {
-  height: 50px;
+  
 }
 
 .logoImageDrawer {
@@ -314,11 +323,11 @@
 
   /* Default mobile logo size before scroll */
   .logoImage {
-    height: 48px;
+    height: 68px;
   }
 
   /* Responsive smaller size when mobile header is scrolled */
   .scrolled .logoImage {
-    height: 38px;
+    height: 68px;
   }
 }

@@ -4,12 +4,13 @@
   padding: 100px 24px 80px;
   display: flex;
   justify-content: center;
+  scroll-margin-top: 80px;
 }
 
 .container {
   width: 100%;
   max-width: 1240px;
-  margin: 0 auto;
+  margin: -55px auto;
 }
 
 /* Header */
