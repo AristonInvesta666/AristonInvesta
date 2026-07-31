@@ -47,7 +47,7 @@ export default function HowItWorks() {
           <h2>Simple Steps. Lasting Growth.</h2>
         </motion.div>
 
-        {/* 4-Step Process Flow */}
+        {/* Process Flow */}
         <div className={styles.stepsWrapper}>
           {steps.map((step, index) => {
             const IconComponent = step.icon;
@@ -63,7 +63,7 @@ export default function HowItWorks() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover="hover"
                 >
-                  {/* Dark Navy Circle with Gold Icon */}
+                  {/* Icon Circle */}
                   <motion.div
                     className={styles.iconCircle}
                     variants={{
@@ -74,15 +74,15 @@ export default function HowItWorks() {
                     <IconComponent className={styles.icon} />
                   </motion.div>
 
-                  {/* Step Number */}
-                  <span className={styles.stepNumber}>{step.number}</span>
-
-                  {/* Title & Description */}
-                  <h3 className={styles.stepTitle}>{step.title}</h3>
-                  <p className={styles.stepDescription}>{step.description}</p>
+                  {/* Text Content */}
+                  <div className={styles.stepContent}>
+                    <span className={styles.stepNumber}>{step.number}</span>
+                    <h3 className={styles.stepTitle}>{step.title}</h3>
+                    <p className={styles.stepDescription}>{step.description}</p>
+                  </div>
                 </motion.div>
 
-                {/* Connecting Dashed Line Arrow */}
+                {/* Horizontal Dashed Line Arrow (Desktop) */}
                 {!isLast && (
                   <div className={styles.arrowConnector} aria-hidden="true">
                     <svg
@@ -100,6 +100,11 @@ export default function HowItWorks() {
                       />
                     </svg>
                   </div>
+                )}
+
+                {/* Vertical Connector Line (Mobile Only) */}
+                {!isLast && (
+                  <div className={styles.mobileConnector} aria-hidden="true" />
                 )}
               </React.Fragment>
             );

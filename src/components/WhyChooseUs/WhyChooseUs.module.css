@@ -1,21 +1,23 @@
 .section {
   width: 100%;
-  background-color: #ffffff;
-  padding: 80px 24px;
+  background-color: #ffffff; /* Crisp white theme matching Section 4 design */
+  padding: 100px 24px;
   display: flex;
   justify-content: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  scroll-margin-top: 80px;
 }
 
 .container {
   width: 100%;
   max-width: 1140px;
-  margin: 0 auto;
+  margin: -70px auto;
 }
 
 /* Header */
 .header {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 64px;
 }
 
 .header h2 {
@@ -24,138 +26,61 @@
   color: #0b1727;
   font-weight: 500;
   letter-spacing: -0.01em;
-   transform: translateY(-4px);
 }
 
-/* 3x2 Grid Matrix */
+/* 3x2 Minimalist Matrix Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 24px;
 }
 
-/* Base Card Container */
+/* Individual Feature Card */
 .card {
-  position: relative;
-  background-color: #ffffff;
-  border-radius: 16px;
-  padding: 40px 28px;
+  background-color: #fafbfc;
+  border: 1px solid #eef1f5;
+  border-radius: 12px;
+  padding: 44px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
-  overflow: hidden;
-  /* Dark/Black Base Border */
-  border: 1px solid #1a202c;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-/* Animated Golden Border Overlay (Triggers on Hover) */
-.card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(
-    transparent,
-    transparent 120deg,
-    #c49a45 180deg,
-    #ffd700 240deg,
-    transparent 300deg
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-  animation: rotateGoldBorder 4s linear infinite;
-  z-index: 0;
-}
-
-/* Inner Masking Layer to keep card center solid white */
-.cardContent {
   position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
 }
 
 .card:hover {
-  border-color: transparent; /* Hides default border so gold beam shows cleanly */
-  box-shadow: 0 16px 32px rgba(11, 23, 39, 0.12),
-    0 0 20px rgba(196, 154, 69, 0.25);
+  background-color: #ffffff;
+  border-color: rgba(196, 154, 69, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(8, 17, 31, 0.06),
+    0 0 18px rgba(196, 154, 69, 0.1);
 }
 
-.card:hover::before {
-  opacity: 1; /* Reveals the moving gold border on hover */
-}
-
-/* Inner Border Pad to maintain rounded clip */
-.card::after {
-  content: "";
-  position: absolute;
-  inset: 2px; /* Controls border thickness */
-  background: #ffffff;
-  border-radius: 14px;
-  z-index: 1;
-}
-
-/* Keyframe for rotating gold light trail */
-@keyframes rotateGoldBorder {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Gold Icon Wrapper Badge */
+/* Gold Icon Wrapper */
 .iconWrapper {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    rgba(196, 154, 69, 0.12),
-    rgba(196, 154, 69, 0.04)
-  );
-  border: 1px solid rgba(196, 154, 69, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  transition: all 0.3s ease;
-}
-
-.card:hover .iconWrapper {
-  background: linear-gradient(
-    135deg,
-    rgba(196, 154, 69, 0.25),
-    rgba(196, 154, 69, 0.08)
-  );
-  border-color: #c49a45;
 }
 
 .icon {
-  width: 28px;
-  height: 28px;
-  color: #c49a45;
-  stroke-width: 1.8px;
+  width: 38px;
+  height: 38px;
+  color: #c49a45; /* Signature Gold Accent */
+  stroke-width: 1.5px;
 }
 
 /* Title Typography */
 .cardTitle {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: #0b1727;
-  font-size: 1.05rem;
-  font-weight: 600;
-  line-height: 1.45;
+  font-size: 1.025rem;
+  font-weight: 700;
+  line-height: 1.4;
   max-width: 220px;
   margin: 0;
 }
@@ -164,21 +89,63 @@
 @media (max-width: 960px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 18px;
   }
 }
 
+/* ==========================================================
+   MOBILE VIEW UI (600px and down)
+   ========================================================== */
 @media (max-width: 600px) {
   .section {
     padding: 56px 16px;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .header {
+    margin-bottom: 36px;
   }
 
+  /* 2-column balanced grid for mobile */
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* Compact card styling */
   .card {
-    padding: 32px 20px;
+    padding: 20px 14px;
+    border-radius: 14px;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: flex-start;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(11, 23, 39, 0.04);
+  }
+
+  .card:active {
+    background-color: #fafbfc;
+    border-color: #c49a45;
+  }
+
+  /* Circular icon backing on mobile */
+  .iconWrapper {
+    margin-bottom: 12px;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background-color: rgba(196, 154, 69, 0.08);
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    stroke-width: 1.75px;
+  }
+
+  .cardTitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    max-width: 100%;
+    line-height: 1.35;
   }
 }

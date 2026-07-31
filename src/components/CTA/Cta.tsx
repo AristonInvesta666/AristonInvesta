@@ -53,11 +53,11 @@ export default function CTA() {
 
           <div className={styles.actions}>
             <a href="#contact" className={styles.primaryButton}>
-              Become a Growth Partner
+              <span>Become a Growth Partner</span>
               <ArrowRight className={styles.btnIcon} />
             </a>
             <a href="#contact" className={styles.secondaryButton}>
-              Contact Our Team
+              <span>Contact Our Team</span>
               <ArrowRight className={styles.btnIcon} />
             </a>
           </div>

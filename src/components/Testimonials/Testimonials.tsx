@@ -15,26 +15,26 @@ const testimonials = [
   {
     quote:
       "The onboarding process was simple, professional, and transparent. The team guided me at every step.",
-    name: "Sonia Deshmukh",
-    title: "Growth Partner, Pune",
+    name: "Rohit Sharma",
+    title: "Growth Partner",
     avatar:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
   },
   {
     quote:
       "Ariston helped me build valuable business connections while creating new income opportunities.",
-    name: "Pooja Kulkarni",
-    title: "Business Partner, Bengaluru",
+    name: "Neha Verma",
+    title: "Business Partner",
     avatar:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=300&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
   },
   {
     quote:
       "A reliable platform focused on long-term growth rather than short-term gains. Highly recommended!",
-    name: "Vikram Sengupta",
-    title: "Investor, Kolkata",
+    name: "Amit Patel",
+    title: "Investor",
     avatar:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
   },
 ];
 

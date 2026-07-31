@@ -11,7 +11,7 @@
   padding: 18px 36px;
 
   /* Luxury navy gradient */
- background: rgba(8, 17, 31, 0.35);
+  background: rgba(8, 17, 31, 0.35);
 
   -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
@@ -39,9 +39,9 @@
 .brand {
   display: flex;
   align-items: center;
-  justify-content: center;   /* Center horizontally */
-  width: 170px;              /* Adjust as needed */
-  height: 70px;              /* Glass box height */
+  justify-content: center;
+  width: 170px;
+  height: 70px;
   padding: 0;
 
   background: rgb(221, 216, 216);
@@ -50,21 +50,30 @@
 
   overflow: hidden;
 }
+
 .logoImage {
- 
   width: 110px;
   object-fit: contain;
-
 }
 
-/* Shrunk logo height for desktop when scrolled */
-.scrolled .logoImage {
-  
+/* Glass effect container around Drawer Logo */
+.drawerLogoBrand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 56px;
+  padding: 0;
+
+  background: rgb(221, 216, 216);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  overflow: hidden;
 }
 
 .logoImageDrawer {
-  height: 58px;
-  width: auto;
+  width: 90px;
   object-fit: contain;
   display: block;
 }
@@ -260,23 +269,38 @@
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
+  background: transparent;
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.mobileMenuLink:hover,
+/* Prevent sticky mobile touch hover while enabling desktop cursor hover */
+@media (hover: hover) {
+  .mobileMenuLink:hover {
+    background: rgba(212, 161, 74, 0.12);
+    color: #f1bd64;
+  }
+
+  .mobileMenuLink:hover .mobileLinkIcon {
+    opacity: 1;
+    transform: translate(2px, -2px);
+  }
+}
+
+/* STRICT ACTIVE STATE - Ensures only 1 active link highlights at a time */
 .activeMobileLink {
-  background: rgba(212, 161, 74, 0.12);
+  background: rgba(212, 161, 74, 0.15) !important;
+  color: #f1bd64 !important;
+  font-weight: 600;
+}
+
+.activeMobileLink .mobileLinkIcon {
+  opacity: 1;
   color: #f1bd64;
 }
 
 .mobileLinkIcon {
   opacity: 0.5;
   transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.mobileMenuLink:hover .mobileLinkIcon {
-  opacity: 1;
-  transform: translate(2px, -2px);
 }
 
 .drawerFooter {

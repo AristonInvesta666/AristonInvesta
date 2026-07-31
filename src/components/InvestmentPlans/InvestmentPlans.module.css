@@ -4,13 +4,14 @@
   padding: 100px 24px 80px;
   display: flex;
   justify-content: center;
-  scroll-margin-top: 80px;
+  overflow: hidden; /* Prevents horizontal scrollbars */
+  scroll-margin-top: 25px;
 }
 
 .container {
   width: 100%;
   max-width: 1240px;
-  margin: -55px auto;
+  margin: -40px auto;
 }
 
 /* Header */
@@ -27,12 +28,19 @@
   letter-spacing: -0.01em;
 }
 
-/* 5 Column Grid */
-.planGrid {
+/* ==========================================================
+   DESKTOP GRID (Exactly 5 Cards, No Repeats)
+   ========================================================== */
+.desktopPlanGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   align-items: stretch;
+}
+
+/* Hide Mobile Marquee by default on Desktop/Tablet */
+.mobileMarqueeContainer {
+  display: none;
 }
 
 /* Card Styling */
@@ -156,27 +164,94 @@
   margin-bottom: 0;
 }
 
-/* Responsive Adaptations */
+/* Tablet Adaptations */
 @media (max-width: 1100px) {
-  .planGrid {
+  .desktopPlanGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
 }
 
-@media (max-width: 720px) {
-  .planGrid {
+@media (max-width: 800px) {
+  .desktopPlanGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 500px) {
+/* ==========================================================
+   MOBILE VIEW UI (640px and down) - INFINITE AUTO SCROLL
+   ========================================================== */
+@media (max-width: 640px) {
   .section {
-    padding: 64px 16px 48px;
+    padding: 56px 0 40px;
   }
 
-  .planGrid {
-    grid-template-columns: 1fr;
-    gap: 28px;
+  .header {
+    margin-bottom: 36px;
+    padding: 0 20px;
+  }
+
+  .disclaimer {
+    padding: 0 20px;
+  }
+
+  /* Hide Desktop Grid on Mobile */
+  .desktopPlanGrid {
+    display: none;
+  }
+
+  /* Show Mobile Marquee Container */
+  .mobileMarqueeContainer {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 8%,
+      rgba(0, 0, 0, 1) 92%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 8%,
+      rgba(0, 0, 0, 1) 92%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  /* Infinite moving track */
+  .mobileSliderTrack {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    animation: marquee 22s linear infinite;
+    padding: 16px 8px;
+  }
+
+  /* Pause animation on hover or touch */
+  .mobileMarqueeContainer:hover .mobileSliderTrack,
+  .mobileMarqueeContainer:active .mobileSliderTrack {
+    animation-play-state: paused;
+  }
+
+  /* Fixed size for slider cards */
+  .planCard {
+    width: 270px;
+    min-width: 270px;
+    flex-shrink: 0;
+    padding: 28px 18px 22px;
+  }
+}
+
+/* Right to Left Animation Keyframes */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }

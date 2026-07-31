@@ -39,6 +39,9 @@ const plans = [
 ];
 
 export default function InvestmentPlans() {
+  // Duplicated list ONLY used inside the mobile marquee slider
+  const duplicatedPlans = [...plans, ...plans];
+
   return (
     <section id="plans" className={styles.section}>
       <div className={styles.container}>
@@ -53,8 +56,8 @@ export default function InvestmentPlans() {
           <h2>Designed for Different Investment Goals</h2>
         </motion.div>
 
-        {/* 5-Column Cards Layout */}
-        <div className={styles.planGrid}>
+        {/* 1. DESKTOP / TABLET GRID LAYOUT (Only 5 Cards) */}
+        <div className={styles.desktopPlanGrid}>
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -67,26 +70,20 @@ export default function InvestmentPlans() {
               transition={{ duration: 0.5, delay: index * 0.08 }}
               whileHover={{ y: -6 }}
             >
-              {/* Featured Badge */}
               {plan.featured && (
                 <div className={styles.featuredBadge}>
                   <span>★ MOST POPULAR</span>
                 </div>
               )}
 
-              {/* Crown Icon */}
               <div className={styles.iconWrapper}>
                 <Crown className={styles.crownIcon} />
               </div>
 
-              {/* Title & Price */}
               <h3 className={styles.planName}>{plan.name}</h3>
               <p className={styles.price}>{plan.price}</p>
-
-              {/* Detail Paragraph */}
               <p className={styles.detail}>{plan.detail}</p>
 
-              {/* Action Button */}
               <a
                 href="#contact"
                 className={`${styles.planCta} ${
@@ -97,6 +94,43 @@ export default function InvestmentPlans() {
               </a>
             </motion.div>
           ))}
+        </div>
+
+        {/* 2. MOBILE MARQUEE SLIDER (Duplicated Cards for Continuous Loop) */}
+        <div className={styles.mobileMarqueeContainer}>
+          <div className={styles.mobileSliderTrack}>
+            {duplicatedPlans.map((plan, index) => (
+              <div
+                key={`${plan.name}-${index}`}
+                className={`${styles.planCard} ${
+                  plan.featured ? styles.featuredCard : ""
+                }`}
+              >
+                {plan.featured && (
+                  <div className={styles.featuredBadge}>
+                    <span>★ MOST POPULAR</span>
+                  </div>
+                )}
+
+                <div className={styles.iconWrapper}>
+                  <Crown className={styles.crownIcon} />
+                </div>
+
+                <h3 className={styles.planName}>{plan.name}</h3>
+                <p className={styles.price}>{plan.price}</p>
+                <p className={styles.detail}>{plan.detail}</p>
+
+                <a
+                  href="#contact"
+                  className={`${styles.planCta} ${
+                    plan.featured ? styles.featuredCta : styles.standardCta
+                  }`}
+                >
+                  Learn More
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Disclaimer Footer */}

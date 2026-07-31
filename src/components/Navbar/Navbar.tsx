@@ -14,9 +14,9 @@ const navLinks: NavLink[] = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
   { label: "Growth Partner", href: "#opportunities" },
-  { label: "Investment Plans", href: "#plans" },
   { label: "Why Ariston", href: "#why-choose-us" },
   { label: "How It Works", href: "#how-it-works" },
+  { label: "Investment Plans", href: "#plans" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
@@ -47,7 +47,7 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  // Update active section based on scroll position
+  // Precise IntersectionObserver to track exact visible section
   useEffect(() => {
     const handleObserver = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
@@ -58,7 +58,8 @@ export default function Navbar() {
     };
 
     const observer = new IntersectionObserver(handleObserver, {
-      threshold: 0.3,
+      rootMargin: "-30% 0px -50% 0px", // Triggers active state when section is near center viewport
+      threshold: 0,
     });
 
     navLinks.forEach((link) => {
@@ -69,12 +70,13 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  // Smooth scroll handler for mobile links to guarantee navigation
+  // Smooth scroll & instant active link update handler
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
     e.preventDefault();
+    setActiveSection(href); // Instantly set active section state
     setIsOpen(false);
 
     const targetElement = document.querySelector(href);
@@ -97,11 +99,12 @@ export default function Navbar() {
           <motion.a
             className={styles.brand}
             href="#hero"
+            onClick={(e) => handleNavClick(e, "#hero")}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
             <img
-              src="/AristonL.png" /* Update path to match your logo image source */
+              src="/AristonL.png"
               alt="Ariston Investa Group Logo"
               className={styles.logoImage}
             />
@@ -125,6 +128,7 @@ export default function Navbar() {
                   >
                     <a
                       href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
                       className={`${styles.navLink} ${
                         isActive ? styles.activeLink : ""
                       }`}
@@ -170,6 +174,7 @@ export default function Navbar() {
           <div className={styles.actions}>
             <motion.a
               href="#contact"
+              onClick={(e) => handleNavClick(e, "#contact")}
               className={styles.cta}
               whileHover={{ scale: 1.04, y: -1 }}
               whileTap={{ scale: 0.96 }}
@@ -178,7 +183,7 @@ export default function Navbar() {
               <ArrowUpRight className={styles.ctaIcon} size={15} />
             </motion.a>
 
-            {/* Mobile Toggle Button on RIGHT side */}
+            {/* Mobile Toggle Button */}
             <motion.button
               type="button"
               className={styles.mobileToggle}
@@ -227,7 +232,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             />
 
-            {/* Drawer sliding out from LEFT */}
+            {/* Mobile Drawer sliding out from LEFT */}
             <motion.aside
               className={styles.mobileDrawer}
               initial={{ x: "-100%" }}
@@ -236,11 +241,15 @@ export default function Navbar() {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
               <div className={styles.drawerHeader}>
-                <img
-                  src="/AristonL.png" /* Update path to match your logo image source */
-                  alt="Ariston Investa Group Logo"
-                  className={styles.logoImageDrawer}
-                />
+                {/* White Glass Container for Drawer Logo */}
+                <div className={styles.drawerLogoBrand}>
+                  <img
+                    src="/AristonL.png"
+                    alt="Ariston Investa Group Logo"
+                    className={styles.logoImageDrawer}
+                  />
+                </div>
+
                 <button
                   type="button"
                   className={styles.drawerCloseBtn}
@@ -251,30 +260,32 @@ export default function Navbar() {
               </div>
 
               <ul className={styles.mobileMenuList}>
-                {navLinks.map((link, idx) => (
-                  <motion.li
-                    key={link.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.04 * idx, duration: 0.2 }}
-                  >
-                    <a
-                      href={link.href}
-                      className={`${styles.mobileMenuLink} ${
-                        activeSection === link.href
-                          ? styles.activeMobileLink
-                          : ""
-                      }`}
-                      onClick={(e) => handleNavClick(e, link.href)}
+                {navLinks.map((link, idx) => {
+                  const isActive = activeSection === link.href;
+
+                  return (
+                    <motion.li
+                      key={link.href}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.04 * idx, duration: 0.2 }}
                     >
-                      <span>{link.label}</span>
-                      <ArrowUpRight
-                        size={16}
-                        className={styles.mobileLinkIcon}
-                      />
-                    </a>
-                  </motion.li>
-                ))}
+                      <a
+                        href={link.href}
+                        className={`${styles.mobileMenuLink} ${
+                          isActive ? styles.activeMobileLink : ""
+                        }`}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                      >
+                        <span>{link.label}</span>
+                        <ArrowUpRight
+                          size={16}
+                          className={styles.mobileLinkIcon}
+                        />
+                      </a>
+                    </motion.li>
+                  );
+                })}
               </ul>
 
               <div className={styles.drawerFooter}>
