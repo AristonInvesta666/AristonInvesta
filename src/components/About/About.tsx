@@ -8,7 +8,7 @@ export default function About() {
   return (
     <section id="about" className={styles.aboutSection}>
       <div className={styles.container}>
-        {/* Left Column: Refined Content */}
+        {/* Left Column: Client Content */}
         <motion.div
           className={styles.leftColumn}
           initial={{ opacity: 0, y: 20 }}
@@ -16,19 +16,19 @@ export default function About() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <span className={styles.subheading}>ABOUT ARISTON</span>
+          <span className={styles.subheading}>ABOUT US</span>
 
           <h2 className={styles.heading}>
-            Building Growth <br />
-            Through Meaningful <br />
-            Partnerships.
+            About Ariston <br />
+            Investa Group
           </h2>
 
           <p className={styles.description}>
-            Ariston Investa Group empowers entrepreneurs, professionals, and
-            referral partners with a transparent business model focused on
-            sustainable growth, long-term relationships, and rewarding
-            opportunities.
+            Founded in <strong>1990</strong>, <strong>Ariston Investa Group</strong> is a <strong>Singapore-based</strong> company with decades of experience in financial services, strategic partnerships, and global business development.
+            <br /><br />
+            Our focus is on creating meaningful connections, supporting sustainable growth, and building trusted relationships across international markets.
+            <br /><br />
+            Driven by professionalism, transparency, and innovation, we continue to expand our global presence while delivering excellence in everything we do.
           </p>
 
           <a href="#contact" className={styles.ctaButton}>
@@ -36,7 +36,7 @@ export default function About() {
           </a>
         </motion.div>
 
-        {/* Right Column: Controlled Frame Image with Subtle Card Elevation */}
+        {/* Right Column: Image Frame with Updated Floating Badge */}
         <motion.div
           className={styles.rightColumn}
           initial={{ opacity: 0, y: 20 }}
@@ -46,15 +46,15 @@ export default function About() {
         >
           <div className={styles.imageCard}>
             <img
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+              src="Office.png"
               alt="Ariston Corporate Executive Boardroom"
               className={styles.boardroomImage}
             />
 
-            {/* Elegant Floating Stat Badge */}
+            {/* Updated Badge reflecting 1990 foundation date */}
             <div className={styles.floatingBadge}>
-              <span className={styles.badgeNumber}>10+</span>
-              <span className={styles.badgeText}>Years of Financial Growth</span>
+              <span className={styles.badgeNumber}>35+</span>
+              <span className={styles.badgeText}>Years of Global Excellence</span>
             </div>
           </div>
         </motion.div>

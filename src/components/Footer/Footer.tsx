@@ -20,8 +20,13 @@ export default function Footer() {
             />
           </a>
           <p className={styles.brandDesc}>
-            Premium partnerships and wealth acceleration strategies for
-            sophisticated investors and industry leaders.
+            <strong>Ariston Investa Group</strong>
+            <br />
+            Established: 1990
+            <br />
+            Headquartered in Singapore
+            <br /><br />
+            Committed to professionalism, innovation, and trusted global partnerships.
           </p>
         </div>
 
@@ -74,7 +79,7 @@ export default function Footer() {
               </li>
               <li>
                 <MapPin size={16} className={styles.contactIcon} />
-                <span>123 Business Hub, Andheri (E), Mumbai</span>
+                <span>Singapore</span>
               </li>
             </ul>
           </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image"; // Optional: Use Next.js Image for optimal loading
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ShieldCheck, Globe, Users, TrendingUp } from "lucide-react";
 import styles from "./Hero.module.css";
@@ -38,13 +38,9 @@ const heroHighlights: HeroFeature[] = [
 export default function Hero() {
   return (
     <section id="hero" className={styles.hero}>
-      {/* 
-        OPTION A: Next.js <Image /> Component in .backdrop for auto-optimization.
-        Replace '/images/hero-bg.jpg' with your actual generated image path.
-      */}
       <div className={styles.backdrop}>
         <Image
-          src="/hero-bg.png" // Place your generated image inside public/images/
+          src="/hero-bg.png"
           alt="Ariston Executive Boardroom and City Skyline"
           fill
           priority
@@ -66,10 +62,27 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Become a <br />
-              Growth Partner. <br />
-              <span className={styles.goldText}>Build a Better Future.</span>
+              Overseas Investment <br />
+              <span className={styles.goldText}>
+                A Gateway to Global Wealth Creation.
+              </span>
             </motion.h1>
+
+            <motion.h2
+              className={styles.subtitle}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              style={{
+                fontSize: "1.25rem",
+                color: "#f5d76e",
+                fontWeight: "500",
+                marginTop: "0.5rem",
+                marginBottom: "0.5rem",
+              }}
+            >
+              Building Trust. Creating Global Opportunities.
+            </motion.h2>
 
             <motion.p
               className={styles.description}
@@ -77,9 +90,13 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Join Ariston Investa Group and unlock new opportunities through our
-              structured Growth Partner Program, designed to help individuals and
-              businesses grow with confidence.
+              <strong>
+                Singapore-based financial solutions company established in 1990.
+              </strong>
+              <br />
+              Ariston Investa Group is committed to connecting businesses,
+              strategic partners, and global opportunities through innovation,
+              integrity, and long-term relationships.
             </motion.p>
 
             <motion.div
@@ -88,8 +105,8 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <a href="#contact" className={styles.primaryButton}>
-                Become a Partner &rarr;
+              <a href="#about" className={styles.primaryButton}>
+                Learn More &rarr;
               </a>
               <a href="#plans" className={styles.secondaryButton}>
                 Explore Plans &rarr;

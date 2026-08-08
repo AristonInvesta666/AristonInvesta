@@ -37,7 +37,6 @@
 }
 
 /* Brand Section Styling */
-/* Brand Section Styling */
 .brandBlock {
   display: flex;
   flex-direction: column;
@@ -226,17 +225,16 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
 @media (max-width: 680px) {
   .footer {
     padding: 48px 20px 0;
   }
 
-  /* Center the main container elements */
   .inner {
     text-align: center;
   }
 
-  /* Center the logo and description */
   .brandBlock {
     align-items: center;
   }
@@ -245,7 +243,6 @@
     text-align: center;
   }
 
-  /* Stack links vertically and center everything inside grid columns */
   .linksGrid {
     grid-template-columns: 1fr;
     gap: 36px;
@@ -270,18 +267,15 @@
     justify-content: center;
   }
 
-  /* Center contact items and align icons inline */
   .contactList li {
     justify-content: center;
     text-align: center;
   }
 
-  /* Center social buttons */
   .socials {
     justify-content: center;
   }
 
-  /* Center bottom copyright and policy links */
   .copy {
     flex-direction: column;
     text-align: center;
