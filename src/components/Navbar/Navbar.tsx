@@ -58,7 +58,7 @@ export default function Navbar() {
     };
 
     const observer = new IntersectionObserver(handleObserver, {
-      rootMargin: "-30% 0px -50% 0px", // Triggers active state when section is near center viewport
+      rootMargin: "-30% 0px -50% 0px",
       threshold: 0,
     });
 
@@ -73,11 +73,16 @@ export default function Navbar() {
   // Smooth scroll & instant active link update handler
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
+    isValuesClick: boolean = false
   ) => {
     e.preventDefault();
-    setActiveSection(href); // Instantly set active section state
+    setActiveSection(href);
     setIsOpen(false);
+
+    if (isValuesClick) {
+      window.dispatchEvent(new Event("open-our-values"));
+    }
 
     const targetElement = document.querySelector(href);
     if (targetElement) {
@@ -241,7 +246,6 @@ export default function Navbar() {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
               <div className={styles.drawerHeader}>
-                {/* White Glass Container for Drawer Logo */}
                 <div className={styles.drawerLogoBrand}>
                   <img
                     src="/AristonL.png"
@@ -264,26 +268,53 @@ export default function Navbar() {
                   const isActive = activeSection === link.href;
 
                   return (
-                    <motion.li
-                      key={link.href}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.04 * idx, duration: 0.2 }}
-                    >
-                      <a
-                        href={link.href}
-                        className={`${styles.mobileMenuLink} ${
-                          isActive ? styles.activeMobileLink : ""
-                        }`}
-                        onClick={(e) => handleNavClick(e, link.href)}
+                    <React.Fragment key={link.href}>
+                      <motion.li
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.04 * idx, duration: 0.2 }}
                       >
-                        <span>{link.label}</span>
-                        <ArrowUpRight
-                          size={16}
-                          className={styles.mobileLinkIcon}
-                        />
-                      </a>
-                    </motion.li>
+                        <a
+                          href={link.href}
+                          className={`${styles.mobileMenuLink} ${
+                            isActive ? styles.activeMobileLink : ""
+                          }`}
+                          onClick={(e) => handleNavClick(e, link.href)}
+                        >
+                          <span>{link.label}</span>
+                          <ArrowUpRight
+                            size={16}
+                            className={styles.mobileLinkIcon}
+                          />
+                        </a>
+                      </motion.li>
+
+                      {/* Inserts 'Our Values' right under 'Why Ariston' in Mobile Drawer */}
+                      {link.href === "#why-choose-us" && (
+                        <motion.li
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{
+                            delay: 0.04 * idx + 0.02,
+                            duration: 0.2,
+                          }}
+                        >
+                          <a
+                            href="#why-choose-us"
+                            className={styles.mobileMenuLink}
+                            onClick={(e) =>
+                              handleNavClick(e, "#why-choose-us", true)
+                            }
+                          >
+                            <span>Our Values</span>
+                            <ArrowUpRight
+                              size={16}
+                              className={styles.mobileLinkIcon}
+                            />
+                          </a>
+                        </motion.li>
+                      )}
+                    </React.Fragment>
                   );
                 })}
               </ul>

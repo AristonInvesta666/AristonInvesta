@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Award,
@@ -48,6 +48,18 @@ const valuesList = [
 export default function WhyChooseUs() {
   const [activeTab, setActiveTab] = useState<"reasons" | "visionMission">("reasons");
 
+  // Switch tab when clicked from Mobile Side Navbar
+  useEffect(() => {
+    const handleOpenValues = () => {
+      setActiveTab("visionMission");
+    };
+
+    window.addEventListener("open-our-values", handleOpenValues);
+    return () => {
+      window.removeEventListener("open-our-values", handleOpenValues);
+    };
+  }, []);
+
   return (
     <>
       <style>{`
@@ -55,7 +67,7 @@ export default function WhyChooseUs() {
         .why-us-section {
           width: 100%;
           background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-          padding: 36px 24px 28px; /* Reduced top padding to fix white space */
+          padding: 36px 24px 28px;
           display: flex;
           justify-content: center;
           border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -72,10 +84,10 @@ export default function WhyChooseUs() {
           z-index: 2;
         }
 
-        /* Header Styling with Tighter Margins */
+        /* Header Styling */
         .why-us-header {
           text-align: center;
-          margin-bottom: 24px; /* Reduced bottom margin */
+          margin-bottom: 24px;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -83,11 +95,11 @@ export default function WhyChooseUs() {
 
         .why-us-header h2 {
           font-family: Georgia, "Times New Roman", serif;
-          font-size: clamp(1.8rem, 3vw, 2.3rem); /* Scaled down heading size */
+          font-size: clamp(1.8rem, 3vw, 2.3rem);
           color: #0b1727;
           font-weight: 600;
           letter-spacing: -0.01em;
-          margin-bottom: 12px; /* Reduced space below title */
+          margin-bottom: 12px;
         }
 
         /* Tab Switcher Control */
@@ -119,20 +131,19 @@ export default function WhyChooseUs() {
           box-shadow: 0 2px 8px rgba(11, 23, 39, 0.08);
         }
 
-        /* 4-Column Grid Layout */
+        /* Grid Layouts */
         .why-us-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 20px;
         }
 
-        /* Individual Feature Card */
         .why-us-card {
           background: #ffffff;
           border: 1px solid #e2e8f0;
           border-radius: 14px;
-          padding: 24px 20px; /* Reduced vertical padding */
-          min-height: 210px; /* Compact card height */
+          padding: 24px 20px;
+          min-height: 210px;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -169,7 +180,6 @@ export default function WhyChooseUs() {
           opacity: 1;
         }
 
-        /* Icon Styles */
         .why-us-iconWrapper {
           display: flex;
           align-items: center;
@@ -215,11 +225,10 @@ export default function WhyChooseUs() {
           margin: 0;
         }
 
-        /* Vision & Mission Tab Content (Tighter Compact View) */
         .why-us-vmWrapper {
           display: flex;
           flex-direction: column;
-          gap: 16px; /* Reduced gap between blocks */
+          gap: 16px;
         }
 
         .why-us-vmGrid {
@@ -232,7 +241,7 @@ export default function WhyChooseUs() {
           background: #ffffff;
           border: 1px solid #e2e8f0;
           border-radius: 14px;
-          padding: 22px 24px; /* Reduced card padding */
+          padding: 22px 24px;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
@@ -268,12 +277,11 @@ export default function WhyChooseUs() {
           margin: 0;
         }
 
-        /* Core Values Pill Ribbon */
         .why-us-valuesBlock {
           background: #ffffff;
           border: 1px solid #e2e8f0;
           border-radius: 14px;
-          padding: 18px 24px; /* Tight padding to pull content into screen view */
+          padding: 18px 24px;
           text-align: center;
           box-shadow: 0 4px 20px rgba(11, 23, 39, 0.03);
         }
@@ -346,7 +354,6 @@ export default function WhyChooseUs() {
 
       <section id="why-choose-us" className="why-us-section">
         <div className="why-us-container">
-          {/* Header with Motion */}
           <motion.div
             className="why-us-header"
             initial={{ opacity: 0, y: 15 }}
@@ -356,18 +363,21 @@ export default function WhyChooseUs() {
           >
             <h2>Why Choose Us</h2>
 
-            {/* Interactive Mode Toggle */}
             <div className="why-us-tabContainer">
               <button
                 type="button"
-                className={`why-us-tabBtn ${activeTab === "reasons" ? "why-us-activeTab" : ""}`}
+                className={`why-us-tabBtn ${
+                  activeTab === "reasons" ? "why-us-activeTab" : ""
+                }`}
                 onClick={() => setActiveTab("reasons")}
               >
                 Why Ariston
               </button>
               <button
                 type="button"
-                className={`why-us-tabBtn ${activeTab === "visionMission" ? "why-us-activeTab" : ""}`}
+                className={`why-us-tabBtn ${
+                  activeTab === "visionMission" ? "why-us-activeTab" : ""
+                }`}
                 onClick={() => setActiveTab("visionMission")}
               >
                 Vision & Mission
@@ -375,10 +385,8 @@ export default function WhyChooseUs() {
             </div>
           </motion.div>
 
-          {/* Tab Content Display */}
           <AnimatePresence mode="wait">
             {activeTab === "reasons" ? (
-              /* Mode 1: 4-Card Why Choose Us Grid */
               <motion.div
                 key="reasons-grid"
                 className="why-us-grid"
@@ -414,13 +422,14 @@ export default function WhyChooseUs() {
                       </motion.div>
 
                       <h3 className="why-us-cardTitle">{item.title}</h3>
-                      <p className="why-us-cardDescription">{item.description}</p>
+                      <p className="why-us-cardDescription">
+                        {item.description}
+                      </p>
                     </motion.div>
                   );
                 })}
               </motion.div>
             ) : (
-              /* Mode 2: Vision & Mission Split + Core Values Banner */
               <motion.div
                 key="vm-grid"
                 className="why-us-vmWrapper"
@@ -430,30 +439,31 @@ export default function WhyChooseUs() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="why-us-vmGrid">
-                  {/* Vision Box */}
                   <div className="why-us-vmCard">
                     <div className="why-us-vmIconBox">
                       <Eye size={24} className="why-us-vmIcon" />
                     </div>
                     <h3 className="why-us-vmTitle">Vision</h3>
                     <p className="why-us-vmDesc">
-                      To build a globally respected organization that creates lasting value through innovation, trust, and meaningful business relationships.
+                      To build a globally respected organization that creates
+                      lasting value through innovation, trust, and meaningful
+                      business relationships.
                     </p>
                   </div>
 
-                  {/* Mission Box */}
                   <div className="why-us-vmCard">
                     <div className="why-us-vmIconBox">
                       <Target size={24} className="why-us-vmIcon" />
                     </div>
                     <h3 className="why-us-vmTitle">Mission</h3>
                     <p className="why-us-vmDesc">
-                      To foster strategic partnerships, encourage sustainable growth, and deliver professional solutions that support long-term success.
+                      To foster strategic partnerships, encourage sustainable
+                      growth, and deliver professional solutions that support
+                      long-term success.
                     </p>
                   </div>
                 </div>
 
-                {/* Core Values Ribbon */}
                 <div className="why-us-valuesBlock">
                   <h4 className="why-us-valuesHeading">Our Core Values</h4>
                   <div className="why-us-valuesList">
