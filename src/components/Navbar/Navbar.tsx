@@ -15,9 +15,12 @@ const navLinks: NavLink[] = [
   { label: "About", href: "#about" },
   { label: "Growth Partner", href: "#opportunities" },
   { label: "Why Ariston", href: "#why-choose-us" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Investment Plans", href: "#plans" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "Vision & Mission", href: "#vision-mission" },
+  { label: "Our Values", href: "#our-values" },
+  /* Removed sections kept commented as requested */
+  // { label: "How It Works", href: "#how-it-works" },
+  // { label: "Investment Plans", href: "#plans" },
+  // { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -70,19 +73,14 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  // Smooth scroll & instant active link update handler
+  // Smooth scroll handler
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
-    isValuesClick: boolean = false
+    href: string
   ) => {
     e.preventDefault();
     setActiveSection(href);
     setIsOpen(false);
-
-    if (isValuesClick) {
-      window.dispatchEvent(new Event("open-our-values"));
-    }
 
     const targetElement = document.querySelector(href);
     if (targetElement) {
@@ -127,7 +125,7 @@ export default function Navbar() {
 
                 return (
                   <li
-                    key={link.href}
+                    key={link.label}
                     className={styles.navItem}
                     onMouseEnter={() => setHoveredLink(link.href)}
                   >
@@ -268,53 +266,26 @@ export default function Navbar() {
                   const isActive = activeSection === link.href;
 
                   return (
-                    <React.Fragment key={link.href}>
-                      <motion.li
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.04 * idx, duration: 0.2 }}
+                    <motion.li
+                      key={link.label}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.04 * idx, duration: 0.2 }}
+                    >
+                      <a
+                        href={link.href}
+                        className={`${styles.mobileMenuLink} ${
+                          isActive ? styles.activeMobileLink : ""
+                        }`}
+                        onClick={(e) => handleNavClick(e, link.href)}
                       >
-                        <a
-                          href={link.href}
-                          className={`${styles.mobileMenuLink} ${
-                            isActive ? styles.activeMobileLink : ""
-                          }`}
-                          onClick={(e) => handleNavClick(e, link.href)}
-                        >
-                          <span>{link.label}</span>
-                          <ArrowUpRight
-                            size={16}
-                            className={styles.mobileLinkIcon}
-                          />
-                        </a>
-                      </motion.li>
-
-                      {/* Inserts 'Our Values' right under 'Why Ariston' in Mobile Drawer */}
-                      {link.href === "#why-choose-us" && (
-                        <motion.li
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{
-                            delay: 0.04 * idx + 0.02,
-                            duration: 0.2,
-                          }}
-                        >
-                          <a
-                            href="#why-choose-us"
-                            className={styles.mobileMenuLink}
-                            onClick={(e) =>
-                              handleNavClick(e, "#why-choose-us", true)
-                            }
-                          >
-                            <span>Our Values</span>
-                            <ArrowUpRight
-                              size={16}
-                              className={styles.mobileLinkIcon}
-                            />
-                          </a>
-                        </motion.li>
-                      )}
-                    </React.Fragment>
+                        <span>{link.label}</span>
+                        <ArrowUpRight
+                          size={16}
+                          className={styles.mobileLinkIcon}
+                        />
+                      </a>
+                    </motion.li>
                   );
                 })}
               </ul>

@@ -1,27 +1,27 @@
 .section {
   width: 100%;
   background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  padding: 48px 24px; /* Reduced top/bottom padding to fit viewport */
+  padding: 48px 24px 64px; /* Tight top padding eliminates empty white gap above title */
   display: flex;
   justify-content: center;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   scroll-margin-top: 80px;
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1280px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
 }
 
-/* Header Styling - Tight Padding */
 .header {
   text-align: center;
-  margin-bottom: 24px; /* Reduced from 48px to eliminate excess whitespace */
+  margin-bottom: 36px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,65 +29,34 @@
 
 .header h2 {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2rem, 3.2vw, 2.5rem);
+  font-size: clamp(2.2rem, 3.8vw, 2.8rem);
   color: #0b1727;
   font-weight: 600;
   letter-spacing: -0.01em;
-  margin-bottom: 12px;
+  margin: 0;
 }
 
-/* Tab Switcher Control */
-.tabContainer {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: #edf2f7;
-  padding: 4px;
-  border-radius: 99px;
-  border: 1px solid #e2e8f0;
-}
-
-.tabBtn {
-  background: transparent;
-  border: none;
-  padding: 6px 18px;
-  border-radius: 99px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #526071;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.activeTab {
-  background: #ffffff;
-  color: #0b1727;
-  box-shadow: 0 2px 8px rgba(11, 23, 39, 0.08);
-}
-
-/* 4-Column Grid Layout */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
-/* Individual Feature Card */
 .card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 28px 20px;
-  min-height: 220px;
+  border-radius: 18px;
+  padding: 40px 28px;
+  min-height: 330px; /* Taller card height to eliminate empty void below cards */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   position: relative;
-  box-shadow: 0 4px 16px rgba(11, 23, 39, 0.03);
+  box-shadow: 0 4px 20px rgba(11, 23, 39, 0.03);
   overflow: hidden;
 }
 
@@ -115,16 +84,15 @@
   opacity: 1;
 }
 
-/* Icon Styles */
 .iconWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
+  width: 68px; /* Prominent icon container */
+  height: 68px;
+  border-radius: 16px;
   background: rgba(196, 154, 69, 0.08);
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   transition: all 0.35s ease;
 }
 
@@ -134,8 +102,8 @@
 }
 
 .icon {
-  width: 26px;
-  height: 26px;
+  width: 32px; /* Bigger icon size */
+  height: 32px;
   color: #c49a45;
   stroke-width: 1.75px;
   transition: color 0.35s ease, transform 0.35s ease;
@@ -148,131 +116,29 @@
 .cardTitle {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: #0b1727;
-  font-size: 1.05rem;
+  font-size: 1.2rem; /* Larger, readable title */
   font-weight: 700;
-  line-height: 1.3;
-  margin: 0 0 8px 0;
+  line-height: 1.35;
+  margin: 0 0 12px 0;
 }
 
 .cardDescription {
-  font-size: 0.85rem;
+  font-size: 0.92rem; /* Enhanced description text size */
   color: #526071;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
 }
 
-/* Original Vision & Mission Layout (Compact Stack) */
-.vmWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 16px; /* Tightened from 32px */
-}
-
-.vmGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.vmCard {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 24px 22px; /* Compact padding */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  box-shadow: 0 4px 16px rgba(11, 23, 39, 0.03);
-}
-
-.vmIconBox {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: rgba(196, 154, 69, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-
-.vmIcon {
-  color: #c49a45;
-}
-
-.vmTitle {
-  font-family: Georgia, serif;
-  font-size: 1.3rem;
-  color: #0b1727;
-  margin-bottom: 8px;
-}
-
-.vmDesc {
-  color: #526071;
-  font-size: 0.875rem;
-  line-height: 1.55;
-  margin: 0;
-}
-
-/* Core Values Banner */
-.valuesBlock {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 16px 20px; /* Reduced vertical padding */
-  text-align: center;
-  box-shadow: 0 4px 16px rgba(11, 23, 39, 0.03);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.valuesHeading {
-  font-family: Georgia, serif;
-  font-size: 1.15rem;
-  color: #0b1727;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.valuesList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 8px;
-}
-
-.valuePill {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  background: #f8fafc;
-  border: 1px solid rgba(196, 154, 69, 0.3);
-  border-radius: 99px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #0b1727;
-}
-
-.pillIcon {
-  color: #c49a45;
-}
-
-/* Responsive Media Queries */
+/* Responsive adjustments */
 @media (max-width: 1024px) {
-  .grid, .vmGrid {
+  .grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
-  .valuesBlock {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .valuesList {
-    justify-content: center;
+  .card {
+    min-height: auto;
+    padding: 32px 24px;
   }
 }
 
@@ -281,13 +147,13 @@
     padding: 36px 16px;
   }
 
-  .grid, .vmGrid {
+  .grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 16px;
   }
 
   .card {
-    padding: 20px 16px;
+    padding: 24px 20px;
     align-items: flex-start;
     text-align: left;
   }

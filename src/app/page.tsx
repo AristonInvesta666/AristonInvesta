@@ -2,13 +2,12 @@ import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/components/Hero/Hero";
 import About from "@/components/About/About";
 import Opportunities from "@/components/Opportunities/Opportunities";
-import HowItWorks from "@/components/HowItWorks/HowItWorks";
-import InvestmentPlans from "@/components/InvestmentPlans/InvestmentPlans";
-import Testimonials from "@/components/Testimonials/Testimonials";
+import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
+import VisionMission from "@/components/VisionMission/VisionMission";
+import OurValues from "@/components/OurValues/OurValues";
 import Cta from "@/components/CTA/Cta";
 import Contact from "@/components/Contact/Contact";
 import Footer from "@/components/Footer/Footer";
-import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
 
 export default function Home() {
   return (
@@ -19,9 +18,11 @@ export default function Home() {
         <About />
         <Opportunities />
         <WhyChooseUs />
-        <HowItWorks />
-        <InvestmentPlans />
-        <Testimonials />
+        <VisionMission />
+        <OurValues />
+        {/* <HowItWorks /> */}
+        {/* <InvestmentPlans /> */}
+        {/* <Testimonials /> */}
         <Cta />
         <Contact />
       </main>

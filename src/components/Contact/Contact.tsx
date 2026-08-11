@@ -27,11 +27,11 @@ export default function Contact() {
             <div className={styles.contactList}>
               <div className={styles.contactItem}>
                 <Phone className={styles.contactIcon} />
-                <span>+91 98765 43210</span>
+                <span>+91 8805081808</span>
               </div>
               <div className={styles.contactItem}>
                 <Mail className={styles.contactIcon} />
-                <span>info@aristoninvesta.com</span>
+                <span>AristonInvesta@gmail.com</span>
               </div>
               <div className={styles.contactItem}>
                 <Globe className={styles.contactIcon} />
@@ -40,7 +40,7 @@ export default function Contact() {
               <div className={styles.contactItem}>
                 <MapPin className={styles.contactIcon} />
                 <span>
-                  123, Business Hub, Andheri (E), Mumbai – 400069, India
+                  Singapore
                 </span>
               </div>
             </div>

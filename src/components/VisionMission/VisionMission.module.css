@@ -1,0 +1,127 @@
+.section {
+  width: 100%;
+  /* High contrast navy gradient matching your Navbar theme */
+  background: linear-gradient(180deg, #060d18 0%, #0b1727 100%);
+  padding: 80px 24px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid rgba(212, 161, 74, 0.15);
+  border-bottom: 1px solid rgba(212, 161, 74, 0.15);
+  scroll-margin-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.card {
+  /* Dark glass card background */
+  background: rgba(14, 30, 54, 0.7);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #d4a14a, #f1bd64);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 161, 74, 0.4);
+  background: rgba(18, 38, 68, 0.85);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 24px rgba(212, 161, 74, 0.15);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.iconBox {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  background: rgba(212, 161, 74, 0.12);
+  border: 1px solid rgba(212, 161, 74, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: all 0.35s ease;
+}
+
+.card:hover .iconBox {
+  background: linear-gradient(135deg, #d4a14a 0%, #f1bd64 100%);
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(212, 161, 74, 0.3);
+}
+
+.icon {
+  color: #f1bd64;
+  transition: color 0.35s ease, transform 0.35s ease;
+}
+
+.card:hover .icon {
+  color: #08111f;
+  transform: scale(1.08);
+}
+
+.title {
+  font-family: Georgia, serif;
+  font-size: 1.75rem;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+}
+
+.desc {
+  color: rgba(245, 245, 245, 0.75);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 56px 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .card {
+    padding: 30px 24px;
+  }
+}
