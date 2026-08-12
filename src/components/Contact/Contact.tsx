@@ -37,7 +37,7 @@ export default function Contact() {
               <div className={styles.contactItem}>
                 <MapPin className={styles.contactIcon} />
                 <span>
-                  Singapore
+                  Raffles Place, Singapore
                 </span>
               </div>
             </div>
