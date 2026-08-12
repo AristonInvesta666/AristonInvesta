@@ -1,12 +1,12 @@
 .section {
   width: 100%;
-  background-color: #ffffff;
-  /* Uses local image from public/merlion.jpg with a soft white gradient overlay */
+  /* Dark navy gradient matching Why Choose Us theme */
+  background-color: #060d18;
   background-image: linear-gradient(
       110deg,
-      #ffffff 40%,
-      rgba(255, 255, 255, 0.85) 70%,
-      rgba(255, 255, 255, 0.95) 100%
+      #060d18 35%,
+      rgba(6, 13, 24, 0.85) 70%,
+      rgba(11, 23, 39, 0.95) 100%
     ),
     url("/merlion.jpg");
   background-size: cover, 45% auto;
@@ -15,7 +15,8 @@
   padding: 64px 24px 80px;
   display: flex;
   justify-content: center;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   scroll-margin-top: 80px;
   box-sizing: border-box;
   position: relative;
@@ -38,13 +39,13 @@
 .header h2 {
   font-family: Georgia, serif;
   font-size: clamp(2.2rem, 3.8vw, 2.8rem);
-  color: #0b1727;
+  color: #ffffff; /* White title for high contrast */
   font-weight: 600;
   margin: 0 0 10px 0;
 }
 
 .header p {
-  color: #526071;
+  color: #94a3b8; /* Soft slate body text for dark mode */
   font-size: 1rem;
   margin: 0;
 }
@@ -58,17 +59,18 @@
 
 .card {
   grid-column: span 2;
-  background: rgba(255, 255, 255, 0.92);
+  /* White glassmorphism card background for strong pop */
+  background: rgba(255, 255, 255, 0.95);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border: 1px solid #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 18px;
   padding: 32px 28px;
   min-height: 220px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  box-shadow: 0 4px 20px rgba(11, 23, 39, 0.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
@@ -88,10 +90,10 @@
 
 .card:hover {
   transform: translateY(-6px);
-  border-color: rgba(196, 154, 69, 0.4);
+  border-color: rgba(196, 154, 69, 0.6);
   background: #ffffff;
-  box-shadow: 0 16px 32px rgba(11, 23, 39, 0.08),
-    0 0 20px rgba(196, 154, 69, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 24px rgba(196, 154, 69, 0.25);
 }
 
 .card:hover::before {
@@ -111,7 +113,7 @@
   width: 52px;
   height: 52px;
   border-radius: 14px;
-  background: rgba(196, 154, 69, 0.08);
+  background: rgba(196, 154, 69, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,7 +123,7 @@
 
 .card:hover .iconBox {
   background: #c49a45;
-  box-shadow: 0 6px 16px rgba(196, 154, 69, 0.25);
+  box-shadow: 0 6px 16px rgba(196, 154, 69, 0.3);
 }
 
 .icon {
@@ -145,7 +147,7 @@
 
 .desc {
   font-size: 0.9rem;
-  color: #526071;
+  color: #475569;
   line-height: 1.6;
   margin: 0;
 }
@@ -169,7 +171,8 @@
 @media (max-width: 640px) {
   .section {
     padding: 48px 16px;
-    background-image: none; /* Solid white background on mobile */
+    background-image: none; /* Dark gradient background only on mobile */
+    background: linear-gradient(180deg, #060d18 0%, #0b1727 100%);
   }
 
   .grid {

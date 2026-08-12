@@ -13,11 +13,11 @@ interface NavLink {
 const navLinks: NavLink[] = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
-  { label: "Growth Partner", href: "#opportunities" },
   { label: "Why Ariston", href: "#why-choose-us" },
   { label: "Vision & Mission", href: "#vision-mission" },
   { label: "Our Values", href: "#our-values" },
-  /* Removed sections kept commented as requested */
+  /* Removed sections kept commented */
+  // { label: "Growth Partner", href: "#opportunities" },
   // { label: "How It Works", href: "#how-it-works" },
   // { label: "Investment Plans", href: "#plans" },
   // { label: "Testimonials", href: "#testimonials" },

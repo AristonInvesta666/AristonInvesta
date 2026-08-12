@@ -14,7 +14,7 @@ export default function Footer() {
         <div className={styles.brandBlock}>
           <a href="#hero" className={styles.logoLink}>
             <img
-              src="/AristonL.png" /* Make sure path matches your logo file in /public */
+              src="/AristonL.png"
               alt="Ariston Investa Group Logo"
               className={styles.logoImage}
             />
@@ -25,14 +25,15 @@ export default function Footer() {
             Established: 1990
             <br />
             Headquartered in Singapore
-            <br /><br />
+            <br />
+            <br />
             Committed to professionalism, innovation, and trusted global partnerships.
           </p>
         </div>
 
         {/* Links Grid */}
         <div className={styles.linksGrid}>
-          {/* Quick Links */}
+          {/* Quick Links matching Navbar */}
           <div className={styles.col}>
             <h3>Navigation</h3>
             <ul>
@@ -43,20 +44,26 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#opportunities">
-                  <span>Opportunities</span>
-                  <ArrowUpRight size={13} className={styles.linkIcon} />
-                </a>
-              </li>
-              <li>
-                <a href="#plans">
-                  <span>Investment Plans</span>
-                  <ArrowUpRight size={13} className={styles.linkIcon} />
-                </a>
-              </li>
-              <li>
                 <a href="#why-choose-us">
                   <span>Why Ariston</span>
+                  <ArrowUpRight size={13} className={styles.linkIcon} />
+                </a>
+              </li>
+              <li>
+                <a href="#vision-mission">
+                  <span>Vision &amp; Mission</span>
+                  <ArrowUpRight size={13} className={styles.linkIcon} />
+                </a>
+              </li>
+              <li>
+                <a href="#our-values">
+                  <span>Our Values</span>
+                  <ArrowUpRight size={13} className={styles.linkIcon} />
+                </a>
+              </li>
+              <li>
+                <a href="#contact">
+                  <span>Contact</span>
                   <ArrowUpRight size={13} className={styles.linkIcon} />
                 </a>
               </li>

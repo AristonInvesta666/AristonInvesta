@@ -16,9 +16,11 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <Opportunities />
+        {/* <Opportunities /> */}
+        
         <WhyChooseUs />
         <VisionMission />
+        
         <OurValues />
         {/* <HowItWorks /> */}
         {/* <InvestmentPlans /> */}
