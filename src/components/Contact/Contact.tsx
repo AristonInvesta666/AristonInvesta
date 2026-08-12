@@ -25,10 +25,7 @@ export default function Contact() {
             </p>
 
             <div className={styles.contactList}>
-              <div className={styles.contactItem}>
-                <Phone className={styles.contactIcon} />
-                <span>+91 8805081808</span>
-              </div>
+              
               <div className={styles.contactItem}>
                 <Mail className={styles.contactIcon} />
                 <span>AristonInvesta@gmail.com</span>
