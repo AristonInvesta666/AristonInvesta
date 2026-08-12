@@ -103,7 +103,7 @@ export default function Footer() {
                 <Link size={18} />
               </a>
               <a
-                href="mailto:info@aristoninvesta.com"
+                href="mailto:AristonInvesta@gmail.com"
                 aria-label="Email"
                 className={styles.socialBtn}
               >
