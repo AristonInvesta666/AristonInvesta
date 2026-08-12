@@ -45,8 +45,9 @@ export default function WhyChooseUs() {
         <motion.div
           className={styles.grid}
           initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
           {reasons.map((item, index) => {
             const IconComponent = item.icon;

@@ -10,7 +10,7 @@
   z-index: 1000;
   padding: 18px 36px;
 
-  /* Luxury navy gradient */
+  /* Luxury navy gradient backdrop */
   background: rgba(8, 17, 31, 0.35);
 
   -webkit-backdrop-filter: blur(18px);
@@ -90,10 +90,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px; /* Increased from 8px to add spacing between navlinks */
+  gap: 16px; /* Generous gap for clean separation */
   list-style: none;
   margin: 0;
-  padding: 6px 16px; /* Slightly increased horizontal padding for balance */
+  padding: 6px 16px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 99px;
@@ -140,13 +140,14 @@
 
 .activeLine {
   position: absolute;
-  bottom: -4px;
-  left: 16px;
-  right: 16px;
+  bottom: 2px;
+  left: 12px;
+  right: 12px;
   height: 2px;
   background: linear-gradient(90deg, #d4a14a, #f1bd64);
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(212, 161, 74, 0.6);
+  pointer-events: none;
 }
 
 /* Right Actions Section */
@@ -273,7 +274,6 @@
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* Prevent sticky mobile touch hover while enabling desktop cursor hover */
 @media (hover: hover) {
   .mobileMenuLink:hover {
     background: rgba(212, 161, 74, 0.12);
@@ -286,7 +286,6 @@
   }
 }
 
-/* STRICT ACTIVE STATE - Ensures only 1 active link highlights at a time */
 .activeMobileLink {
   background: rgba(212, 161, 74, 0.15) !important;
   color: #f1bd64 !important;
@@ -345,12 +344,10 @@
     font-size: 0.75rem;
   }
 
-  /* Default mobile logo size before scroll */
   .logoImage {
     height: 68px;
   }
 
-  /* Responsive smaller size when mobile header is scrolled */
   .scrolled .logoImage {
     height: 68px;
   }

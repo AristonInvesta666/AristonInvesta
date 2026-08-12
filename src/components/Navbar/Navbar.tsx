@@ -16,11 +16,6 @@ const navLinks: NavLink[] = [
   { label: "Why Ariston", href: "#why-choose-us" },
   { label: "Vision & Mission", href: "#vision-mission" },
   { label: "Our Values", href: "#our-values" },
-  /* Removed sections kept commented */
-  // { label: "Growth Partner", href: "#opportunities" },
-  // { label: "How It Works", href: "#how-it-works" },
-  // { label: "Investment Plans", href: "#plans" },
-  // { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -30,7 +25,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState<string>("#hero");
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
-  // Handle background transition on scroll
+  // Background style change on scroll
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -38,42 +33,47 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent background scrolling when mobile drawer is open
+  // Prevent background scrolling when mobile menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
-  // Precise IntersectionObserver to track exact visible section
-  useEffect(() => {
-    const handleObserver = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(`#${entry.target.id}`);
-        }
-      });
-    };
+// Active navigation link while scrolling
+useEffect(() => {
+  const handleScrollSpy = () => {
+    const navOffset = 120;
+    const scrollPosition = window.scrollY + navOffset;
 
-    const observer = new IntersectionObserver(handleObserver, {
-      rootMargin: "-30% 0px -50% 0px",
-      threshold: 0,
-    });
+    let currentSection = "#hero";
 
     navLinks.forEach((link) => {
-      const target = document.querySelector(link.href);
-      if (target) observer.observe(target);
+      const section = document.querySelector(link.href) as HTMLElement | null;
+
+      if (!section) return;
+
+      const sectionTop = section.offsetTop;
+
+      if (scrollPosition >= sectionTop) {
+        currentSection = link.href;
+      }
     });
 
-    return () => observer.disconnect();
-  }, []);
+    setActiveSection(currentSection);
+  };
 
-  // Smooth scroll handler
+  window.addEventListener("scroll", handleScrollSpy, { passive: true });
+
+  handleScrollSpy();
+
+  return () => {
+    window.removeEventListener("scroll", handleScrollSpy);
+  };
+}, []);
+
+  // Smooth Scroll Click Handler
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
@@ -84,7 +84,15 @@ export default function Navbar() {
 
     const targetElement = document.querySelector(href);
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" });
+      const navOffset = 80;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
       window.history.pushState(null, "", href);
     }
   };
@@ -98,7 +106,7 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className={styles.container}>
-          {/* Logo Brand (Left) */}
+          {/* Logo Brand */}
           <motion.a
             className={styles.brand}
             href="#hero"
@@ -113,7 +121,7 @@ export default function Navbar() {
             />
           </motion.a>
 
-          {/* Desktop Nav Links (Center) */}
+          {/* Desktop Nav Links */}
           <nav className={styles.navbar} aria-label="Primary navigation">
             <ul
               className={styles.navList}
@@ -139,7 +147,7 @@ export default function Navbar() {
                       {link.label}
                     </a>
 
-                    {/* Animated Hover Background Glow */}
+                    {/* Hover Glow */}
                     {isHovered && (
                       <motion.div
                         layoutId="hoverGlow"
@@ -155,7 +163,7 @@ export default function Navbar() {
                       />
                     )}
 
-                    {/* Animated Active Bottom Gold Indicator Line */}
+                    {/* Active Yellow/Gold Underline Line */}
                     {isActive && (
                       <motion.div
                         layoutId="activeUnderline"
@@ -173,7 +181,7 @@ export default function Navbar() {
             </ul>
           </nav>
 
-          {/* Actions & Mobile Toggle (Right) */}
+          {/* Right Actions */}
           <div className={styles.actions}>
             <motion.a
               href="#contact"
@@ -222,11 +230,10 @@ export default function Navbar() {
         </div>
       </motion.header>
 
-      {/* Left Drawer & Backdrop Overlay */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Dark Backdrop */}
             <motion.div
               className={styles.backdrop}
               initial={{ opacity: 0 }}
@@ -235,7 +242,6 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             />
 
-            {/* Mobile Drawer sliding out from LEFT */}
             <motion.aside
               className={styles.mobileDrawer}
               initial={{ x: "-100%" }}
