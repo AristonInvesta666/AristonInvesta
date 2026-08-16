@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./Footer.module.css";
-import { Mail, Phone, MapPin, ArrowUpRight, Globe } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight} from "lucide-react";
 
 export default function Footer() {
   return (
@@ -92,15 +92,7 @@ export default function Footer() {
           <div className={styles.col}>
             <h3>Connect</h3>
             <div className={styles.socials}>
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className={styles.socialBtn}
-              >
-                <Globe size={18} />
-              </a>
+             
               <a
                 href="mailto:info@aristoninvesta.com"
                 aria-label="Email"
