@@ -1,3 +1,4 @@
+/* Section & Layout */
 .section {
   width: 100%;
   background-color: #f3f5f8;
@@ -108,6 +109,7 @@
   outline: none;
   transition: border-color 0.2s ease, background-color 0.2s ease;
   font-family: inherit;
+  box-sizing: border-box;
 }
 
 .fieldGroup input:focus,
@@ -128,6 +130,133 @@
 
 .fieldGroup textarea {
   resize: vertical;
+}
+
+/* Custom Select Dropdown Styles matching your clean light theme */
+.customSelectTrigger {
+  width: 100%;
+  height: 41px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #0b1727;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.customSelectTrigger:hover {
+  border-color: #c49a45;
+  background-color: #ffffff;
+}
+
+.selectTriggerText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.selectChevron {
+  flex-shrink: 0;
+  margin-left: 4px;
+  color: #64748b;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 46px;
+  left: 0;
+  width: 100%;
+  min-width: 200px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  z-index: 999;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.dropdownSearchWrapper {
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.dropdownSearchBox {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.dropdownSearchIcon {
+  color: #94a3b8;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.dropdownSearchInput {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 0.85rem;
+  color: #0b1727;
+  outline: none;
+  font-family: inherit;
+}
+
+.dropdownSearchInput::placeholder {
+  color: #94a3b8;
+}
+
+.dropdownList {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdownItem {
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0b1727;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.15s ease;
+}
+
+.dropdownItem:hover {
+  background-color: #f8fafc;
+  color: #c49a45;
+}
+
+.dropdownItemName {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdownItemCode {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.dropdownNoResult {
+  padding: 12px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-align: center;
 }
 
 /* Submit Button */

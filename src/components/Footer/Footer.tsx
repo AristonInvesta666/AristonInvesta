@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./Footer.module.css";
-import { Link, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight, Globe } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -80,30 +80,29 @@ export default function Footer() {
                   info@aristoninvesta.com
                 </a>
               </li>
-              <li>
-                <Phone size={16} className={styles.contactIcon} />
-                <a href="tel:+919876543210">+91 98765 43210</a>
-              </li>
+       
               <li>
                 <MapPin size={16} className={styles.contactIcon} />
-                <span>Singapore</span>
+                <span>Raffles Place, Singapore</span>
               </li>
             </ul>
           </div>
 
-          {/* Social Media */}
+          {/* Social Media / Connect */}
           <div className={styles.col}>
             <h3>Connect</h3>
             <div className={styles.socials}>
               <a
-                href="#"
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="LinkedIn"
                 className={styles.socialBtn}
               >
-                <Link size={18} />
+                <Globe size={18} />
               </a>
               <a
-                href="mailto:AristonInvesta@gmail.com"
+                href="mailto:info@aristoninvesta.com"
                 aria-label="Email"
                 className={styles.socialBtn}
               >
