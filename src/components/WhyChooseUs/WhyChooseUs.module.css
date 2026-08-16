@@ -1,6 +1,5 @@
 .section {
   width: 100%;
-  /* Dark navy gradient background */
   background: linear-gradient(180deg, #060d18 0%, #0b1727 100%);
   padding: 64px 24px 80px;
   display: flex;
@@ -32,7 +31,7 @@
 .header h2 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.2rem, 3.8vw, 2.8rem);
-  color: #ffffff; /* White heading for dark background contrast */
+  color: #ffffff;
   font-weight: 600;
   letter-spacing: -0.01em;
   margin: 0;
@@ -45,11 +44,11 @@
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.98);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 18px;
-  padding: 40px 28px;
-  min-height: 330px;
+  padding: 0 0 32px 0; /* Padding bottom handled, top is occupied by the image */
+  min-height: 380px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,6 +61,26 @@
   overflow: hidden;
 }
 
+/* Card Image Banner Style */
+.cardImageContainer {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .cardImage {
+  transform: scale(1.08); /* Smooth subtle zoom effect on hover */
+}
+
 .card::before {
   content: "";
   position: absolute;
@@ -72,6 +91,7 @@
   background: linear-gradient(90deg, #c49a45, #f5d76e);
   opacity: 0;
   transition: opacity 0.35s ease;
+  z-index: 3;
 }
 
 .card:hover {
@@ -90,11 +110,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 68px;
-  height: 68px;
+  width: 60px;
+  height: 60px;
   border-radius: 16px;
   background: rgba(196, 154, 69, 0.12);
-  margin-bottom: 24px;
+  margin-top: -36px; /* Pulls the icon up slightly to overlap nicely onto the image banner */
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+  border: 3px solid #ffffff;
   transition: all 0.35s ease;
 }
 
@@ -104,8 +128,8 @@
 }
 
 .icon {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   color: #c49a45;
   stroke-width: 1.75px;
   transition: color 0.35s ease, transform 0.35s ease;
@@ -121,7 +145,8 @@
   font-size: 1.2rem;
   font-weight: 700;
   line-height: 1.35;
-  margin: 0 0 12px 0;
+  margin: 0 0 10px 0;
+  padding: 0 24px;
 }
 
 .cardDescription {
@@ -129,6 +154,7 @@
   color: #475569;
   line-height: 1.6;
   margin: 0;
+  padding: 0 24px;
 }
 
 /* Responsive adjustments */
@@ -140,7 +166,7 @@
 
   .card {
     min-height: auto;
-    padding: 32px 24px;
+    padding-bottom: 28px;
   }
 }
 
@@ -155,8 +181,8 @@
   }
 
   .card {
-    padding: 24px 20px;
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 24px;
   }
 }

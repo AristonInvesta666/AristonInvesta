@@ -10,21 +10,25 @@ const reasons = [
     icon: Award,
     title: "Experience Since 1990",
     description: "More than three decades of industry knowledge and professional expertise.",
+    image: "/experience.jpg",
   },
   {
     icon: Building2,
     title: "Singapore-Based",
     description: "Operating from one of the world's leading financial and business hubs.",
+    image: "/singapur.jpg",
   },
   {
     icon: Handshake,
     title: "Trusted Relationships",
     description: "Built on integrity, transparency, and long-term partnerships.",
+    image: "trusted.jpg",
   },
   {
     icon: Globe,
     title: "Global Outlook",
     description: "Connecting businesses and opportunities across international markets.",
+    image: "global.jpg",
   },
 ];
 
@@ -65,6 +69,11 @@ export default function WhyChooseUs() {
                 }}
                 whileHover="hover"
               >
+                {/* Image Banner at the top of the card */}
+                <div className={styles.cardImageContainer}>
+                  <img src={item.image} alt={item.title} className={styles.cardImage} />
+                </div>
+
                 <motion.div
                   className={styles.iconWrapper}
                   variants={{

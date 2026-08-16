@@ -46,7 +46,7 @@ export default function About() {
         >
           <div className={styles.imageCard}>
             <img
-              src="ArtisonAboutImage.jpg"
+              src="aboutnew.png"
               alt="Ariston Corporate Executive Boardroom"
               className={styles.boardroomImage}
             />
