@@ -8,7 +8,7 @@ import styles from "./About.module.css";
 const images = [
   { src: "about2.png", alt: "Ariston Corporate Executive Boardroom" },
   { src: "about1.png", alt: "Ariston Global Strategy Meeting" },
-  { src: "about3.png", alt: "Ariston Modern Office Interior" },
+  { src: "about3.jpeg", alt: "Ariston Modern Office Interior" },
   { src: "about4.png", alt: "Ariston Financial Services Discussion" },
 ];
 
