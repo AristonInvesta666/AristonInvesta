@@ -33,6 +33,10 @@ export const metadata: Metadata = {
     follow: true,
   },
 
+ verification: {
+  google: "q9ApVd-UXvpjbCo6NKTbPSB21nF_iDhOwFtx1HyZI40",
+},
+
   icons: {
     icon: "/arlogo.png",
   },
@@ -57,4 +61,3 @@ export default function RootLayout({
     </html>
   );
 }
-
