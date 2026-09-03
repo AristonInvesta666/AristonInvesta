@@ -23,12 +23,11 @@ export const metadata: Metadata = {
   description:
     "Ariston Investa Group is a diversified business group focused on building trusted businesses, delivering quality solutions, and creating long-term value.",
 
-  keywords: [
+keywords: [
   "Ariston Investa Group",
   "Ariston Investa",
-  "Ariston Investa Group India",
-  "Ariston Investa Group Mumbai",
-  "Ariston Investa India",
+  "Ariston Investa Group Singapore",
+  "Ariston Investa Singapore",
 ],
   robots: {
     index: true,
