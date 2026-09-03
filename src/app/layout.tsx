@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -14,8 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.aristoninvestagroup.com"),
+
   title: {
-    default: "Ariston Investa Group",
+    default: "Ariston Investa Group | Building Businesses, Creating Value",
     template: "%s | Ariston Investa Group",
   },
 
@@ -23,30 +24,53 @@ export const metadata: Metadata = {
     "Ariston Investa Group is a diversified business group focused on building trusted businesses, delivering quality solutions, and creating long-term value.",
 
   keywords: [
-    "Ariston Investa Group",
-    "Ariston Investa",
-    "Ariston Investa Group India",
-  ],
-
+  "Ariston Investa Group",
+  "Ariston Investa",
+  "Ariston Investa Group India",
+  "Ariston Investa Group Mumbai",
+  "Ariston Investa India",
+],
   robots: {
     index: true,
     follow: true,
   },
 
- verification: {
-  google: "q9ApVd-UXvpjbCo6NKTbPSB21nF_iDhOwFtx1HyZI40",
-},
+  alternates: {
+    canonical: "https://www.aristoninvestagroup.com/",
+  },
+
+  verification: {
+    google: "q9ApVd-UXvpjbCo6NKTbPSB21nF_iDhOwFtx1HyZI40",
+  },
 
   icons: {
     icon: "/arlogo.png",
   },
 
-  openGraph: {
-    title: "Ariston Investa Group",
+openGraph: {
+  title: "Ariston Investa Group | Building Businesses, Creating Value",
+  description:
+    "Ariston Investa Group is a diversified business group focused on building trusted businesses, delivering quality solutions, and creating long-term value.",
+  url: "https://www.aristoninvestagroup.com/",
+  siteName: "Ariston Investa Group",
+  type: "website",
+  locale: "en_SG",
+  images: [
+    {
+      url: "/arlogo.png",
+      width: 512,
+      height: 512,
+      alt: "Ariston Investa Group",
+    },
+  ],
+},
+
+  twitter: {
+    card: "summary",
+    title: "Ariston Investa Group | Building Businesses, Creating Value",
     description:
       "Ariston Investa Group is a diversified business group focused on building trusted businesses, delivering quality solutions, and creating long-term value.",
-    siteName: "Ariston Investa Group",
-    type: "website",
+    images: ["/arlogo.png"],
   },
 };
 
