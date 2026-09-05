@@ -253,7 +253,7 @@ export default function Contact() {
               </div>
               <div className={styles.contactItem}>
                 <Globe className={styles.contactIcon} />
-                <a href="https://www.aristoninvesta.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.aristoninvestagroup.com/" target="_blank" rel="noopener noreferrer">
                   www.aristoninvestagroup.com
                                   </a>
               </div>
