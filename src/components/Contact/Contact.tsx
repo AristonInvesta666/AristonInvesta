@@ -247,15 +247,15 @@ export default function Contact() {
             <div className={styles.contactList}>
               <div className={styles.contactItem}>
                 <Mail className={styles.contactIcon} />
-                <a href="mailto:info@aristoninvesta.com">
-                  info@aristoninvesta.com
+                <a href="mailto:info@aristoninvestagroup.com">
+                  info@aristoninvestagroup.com
                 </a>
               </div>
               <div className={styles.contactItem}>
                 <Globe className={styles.contactIcon} />
                 <a href="https://www.aristoninvesta.com" target="_blank" rel="noopener noreferrer">
-                  www.aristoninvesta.com
-                </a>
+                  www.aristoninvestagroup.com
+                                  </a>
               </div>
               <div className={styles.contactItem}>
                 <MapPin className={styles.contactIcon} />

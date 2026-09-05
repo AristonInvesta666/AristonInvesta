@@ -76,8 +76,8 @@ export default function Footer() {
             <ul className={styles.contactList}>
               <li>
                 <Mail size={16} className={styles.contactIcon} />
-                <a href="mailto:info@aristoninvesta.com">
-                  info@aristoninvesta.com
+                <a href="mailto:info@aristoninvestagroup.com">
+                  info@aristoninvestagroup.com
                 </a>
               </li>
        
@@ -94,7 +94,7 @@ export default function Footer() {
             <div className={styles.socials}>
              
               <a
-                href="mailto:info@aristoninvesta.com"
+                href="mailto:info@aristoninvestagroup.com"
                 aria-label="Email"
                 className={styles.socialBtn}
               >
